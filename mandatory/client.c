@@ -55,7 +55,7 @@ void	send_act(int sig, siginfo_t *info, void *context)
 	if (g_mes.counter == 0)
 	{
 		if (!c)
-			exit(1);
+			g_mes.exit = 1;
 		g_mes.data++;
 		g_mes.counter = 7;
 	}
@@ -83,6 +83,10 @@ int	main(int argc, char *argv[])
 	if (kill((pid_t)ft_atoi(argv[1]), SIGUSR1) < 0)
 		print_error("Fatal error: kill\n");
 	while (1)
+	{
 		pause();
+		if (g_mes.exit == 1)
+			exit(0);
+	}
 	return (0);
 }

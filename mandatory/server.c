@@ -41,7 +41,7 @@ void	one_act(int sig, siginfo_t *info, void *context)
 	if (g_mes.counter == 7)
 	{
 		if (kill(info->si_pid, SIGUSR1) < 0)
-			print_error("Fatal error: kill\n");
+			print_error("Fatal error start: kill\n");
 		return ;
 	}
 	g_mes.value += ft_pow(2, g_mes.counter);

@@ -6,7 +6,7 @@
 /*   By: tgildero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 22:40:19 by tgildero          #+#    #+#             */
-/*   Updated: 2021/09/29 22:41:06 by tgildero         ###   ########.fr       */
+/*   Updated: 2021/10/05 23:35:06 by tgildero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_mes
 	unsigned int	counter;
 	unsigned int	value;
 	char			*data;
+	int				exit;
 }				t_mes;
 
 t_mes		g_mes;
