@@ -49,8 +49,7 @@ void	one_act(int sig, siginfo_t *info, void *context)
 		print_char(g_mes.value);
 	else
 		g_mes.counter--;
-	if (kill(info->si_pid, SIGUSR1) < 0)
-		print_error("Fatal error: kill\n");
+	kill(info->si_pid, SIGUSR1);
 }
 
 void	zero_act(int sig, siginfo_t *info, void *context)
@@ -61,8 +60,7 @@ void	zero_act(int sig, siginfo_t *info, void *context)
 		print_char(g_mes.value);
 	else
 		g_mes.counter--;
-	if (kill(info->si_pid, SIGUSR1) < 0)
-		print_error("Fatal error: kill\n");
+	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(int argc, char const *argv[])

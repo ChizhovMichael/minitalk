@@ -6,7 +6,7 @@
 /*   By: tgildero <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 22:41:15 by tgildero          #+#    #+#             */
-/*   Updated: 2021/09/29 22:41:17 by tgildero         ###   ########.fr       */
+/*   Updated: 2021/10/18 20:46:23 by tgildero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	send_act(int sig, siginfo_t *info, void *context)
 	if (g_mes.counter == 0)
 	{
 		if (!c)
-			g_mes.exit = 1;
+			exit(0);
 		g_mes.data++;
 		g_mes.counter = 7;
 	}
@@ -80,13 +80,10 @@ int	main(int argc, char *argv[])
 		print_error("Fatal error: sigaction\n");
 	g_mes.counter = 7;
 	g_mes.data = argv[2];
-	if (kill((pid_t)ft_atoi(argv[1]), SIGUSR1) < 0)
+	g_mes.data[ft_strlen(g_mes.data)] = '\0';
+	if (kill(ft_atoi(argv[1]), SIGUSR1) < 0)
 		print_error("Fatal error: kill\n");
 	while (1)
-	{
 		pause();
-		if (g_mes.exit == 1)
-			exit(0);
-	}
 	return (0);
 }
